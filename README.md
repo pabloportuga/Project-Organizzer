@@ -8,8 +8,8 @@ Ideia geral: Um programa que organiza as tarefas do dia a dia do usuário numa i
 
 Especificações dos arquivos:
 
-listaPrimaria.h: Essa classe vai contar com 3 blocos: "A fazer", "Em andamento" e "Concluída", cada bloco será a cabeça de uma lista secundária, ela será implementada usando uma estrutura de listas encadeadas; 
+listaPrimaria.cpp: Essa classe vai contar com 3 blocos: "A fazer", "Em andamento" e "Concluída", cada bloco será a cabeça de uma lista secundária, ela será implementada usando uma estrutura de listas encadeadas; 
 
-listaSecundaria.h: Essa classe vai ser criada usando o conceito de Herança através da lista primária, entretanto sua estrutura será em formato de lista duplamente encadeada, isso se deve principalmente pelo nível de complexidade que ela permite quando existe a necessidade de inserções ou remoções constantes dos elementos. Usaremos também 4 algoritmos de ordenação auxiliares: alfabética, prioridade(Urgente, normal, baixa), quantidade de acessos, acessada recentemente.
+listaSecundaria.cpp: Essa classe vai ser criada usando o conceito de Herança através da lista primária, entretanto sua estrutura será em formato de lista duplamente encadeada, isso se deve principalmente pelo nível de complexidade que ela permite quando existe a necessidade de inserções ou remoções constantes dos elementos. Usaremos também 4 algoritmos de ordenação auxiliares: alfabética, prioridade(Urgente, normal, baixa), quantidade de acessos, acessada recentemente.
    
-usuario.h: Essa classe vai conter dados relacionados a identificação do usuário como login e senha, juntamente como métodos como criar, excluir e modificar dados em uma estrutura de TADs em forma de pinha, dando prioridade para acessos recentes;
+usuario.cpp: Essa classe vai conter dados relacionados a identificação do usuário como login e senha, juntamente como métodos como criar, excluir e modificar dados em uma estrutura de TADs em forma de pinha, dando prioridade para acessos recentes;
