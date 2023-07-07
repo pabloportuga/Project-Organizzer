@@ -32,7 +32,6 @@ void Coluna::mostrarColuna() {
   while (cartaoAtual != nullptr) {
     cout << "Cartão: " << cartaoAtual->obterTitulo() << endl;
     cout << "Descrição: " << cartaoAtual->obterDescricao() << endl;
-    cout << "Aqui foi!";
     cartaoAtual = cartaoAtual->obterProximoCartao();
   }
 }

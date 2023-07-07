@@ -11,15 +11,6 @@ Quadro::~Quadro(void){
     Coluna* colunaAtual = primeiraColuna;
     while (colunaAtual != nullptr) {
         Coluna* proximaColuna = colunaAtual->obterProximaColuna();
-
-        // Percorre a lista encadeada de cartões na coluna e libera a memória
-        Cartao* cartaoAtual = colunaAtual->obterPrimeiroCartao();
-        while (cartaoAtual != nullptr) {
-            Cartao* proximoCartao = cartaoAtual->obterProximoCartao();
-            delete cartaoAtual;
-            cartaoAtual = proximoCartao;
-        }
-
         delete colunaAtual;
         colunaAtual = proximaColuna;
     }
@@ -76,5 +67,4 @@ void Quadro::adicionarCartao(const string& titulo, const string& descricao, cons
 	else{
 		cout << "A Coluna não existe!";
 	}
-	
 }

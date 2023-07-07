@@ -1,7 +1,7 @@
 #include "../include/Cartao.h"
 using namespace std;
 
-Cartao::Cartao(const string& titulo, const string& descricao) : titulo(titulo) {}
+Cartao::Cartao(const string& titulo, const string& descricao) : titulo(titulo), descricao(descricao) {}
 
 
 string Cartao::obterTitulo() {
