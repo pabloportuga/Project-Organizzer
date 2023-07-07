@@ -37,14 +37,16 @@ void Quadro::adicionarColuna(const string& nome) {
 
 
 void Quadro::mostrarQuadro() {
+    cout << "--------Quadro--------" << std::endl << std::endl;
     Coluna* colunaAtual = primeiraColuna;
 
     while (colunaAtual != nullptr) {
-        cout << "Coluna: " << colunaAtual->obterNome() << endl;
+        cout << " Coluna: " << colunaAtual->obterNome() << endl;
         colunaAtual->mostrarColuna();  // Chama a função mostrarColuna() da classe Coluna para exibir os cartões
-
+        cout << endl;
         colunaAtual = colunaAtual->obterProximaColuna();
     }
+    cout << "----------------------------" << endl;
 }
 
 Coluna* Quadro::obterColuna(const string& nomeColuna) {
@@ -67,4 +69,28 @@ void Quadro::adicionarCartao(const string& titulo, const string& descricao, cons
 	else{
 		cout << "A Coluna não existe!";
 	}
+}
+
+
+void Quadro::localizarColunasMover(const string &titulo, const string &nomeColunaDestino){
+    Coluna *colunaDestino = obterColuna(nomeColunaDestino);
+    Coluna *colunaOrigem = obterColunaComCartao(titulo);
+      
+      if (colunaOrigem != nullptr && colunaDestino != nullptr) {
+        colunaOrigem->moverCartao(titulo, colunaDestino);
+        std::cout << "Cartão movido com sucesso!" << std::endl;
+      } else {
+        std::cout << "Cartão ou coluna não encontrados!" << std::endl;
+      }
+  }
+
+Coluna* Quadro::obterColunaComCartao(const string &titulo){
+    Coluna* colunaAtual = primeiraColuna;
+    while(colunaAtual!= nullptr){
+        if(colunaAtual->obterCartao(titulo)!=nullptr){
+            return colunaAtual;
+        }
+        colunaAtual = colunaAtual->obterProximaColuna();
+    }
+    return nullptr;
 }

@@ -30,8 +30,9 @@ void Coluna::mostrarColuna() {
   Cartao *cartaoAtual = primeiroCartao;
 
   while (cartaoAtual != nullptr) {
-    cout << "Cartão: " << cartaoAtual->obterTitulo() << endl;
-    cout << "Descrição: " << cartaoAtual->obterDescricao() << endl;
+    cout << "   Cartão: " << cartaoAtual->obterTitulo() << endl;
+    cout << "   Descrição: " << cartaoAtual->obterDescricao() << endl;
+    cout << endl;
     cartaoAtual = cartaoAtual->obterProximoCartao();
   }
 }
@@ -54,7 +55,55 @@ void Coluna::adicionarCartaoNaColuna(const string& titulo, const string& descric
 }
 Cartao *Coluna::obterPrimeiroCartao(){ return primeiroCartao; }
 
+Cartao *Coluna::obterCartao(const string &titulo){
+  Cartao *cartaoAtual = obterPrimeiroCartao(); // errado?
+  while(cartaoAtual!=nullptr){
+    if(titulo == cartaoAtual->obterTitulo()){
+      return cartaoAtual;
+    }
+    cartaoAtual = cartaoAtual->obterProximoCartao();
+  } 
+  return nullptr;
+}
 
 
+void Coluna::moverCartao(const string &titulo, Coluna *colunaDestino) {
+  Cartao *cartaoAtual = primeiroCartao;
+  Cartao *cartaoAnterior = nullptr;
 
-        
+  // Percorre a lista encadeada de cartões
+  while (cartaoAtual != nullptr) {
+    if (cartaoAtual->obterTitulo() == titulo) {
+      // Encontrou o cartão a ser movido
+
+      if (cartaoAnterior == nullptr) {
+        // O cartão a ser movido é o primeiro cartão da coluna
+        primeiroCartao = cartaoAtual->obterProximoCartao();
+      } else {
+        // O cartão a ser movido não é o primeiro cartão
+        cartaoAnterior->definirProximoCartao(cartaoAtual->obterProximoCartao());
+      }
+
+      // Insere o cartão no final da coluna de destino
+      if (colunaDestino != nullptr) {
+        cartaoAtual->definirProximoCartao(nullptr);
+
+        Cartao *ultimoCartao = colunaDestino->obterPrimeiroCartao();
+        if (ultimoCartao == nullptr) {
+          colunaDestino->definirPrimeiroCartao(cartaoAtual);
+        } else {
+          while (ultimoCartao->obterProximoCartao() != nullptr) {
+            ultimoCartao = ultimoCartao->obterProximoCartao();
+          }
+          ultimoCartao->definirProximoCartao(cartaoAtual);
+        }
+      }
+      return;
+    }
+    cartaoAnterior = cartaoAtual;
+    cartaoAtual = cartaoAtual->obterProximoCartao();
+  }
+}
+
+
+void Coluna::definirPrimeiroCartao(Cartao *cartao) { primeiroCartao = cartao; }

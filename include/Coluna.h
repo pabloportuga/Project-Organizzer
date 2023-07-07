@@ -24,7 +24,14 @@ public:
   void mostrarColuna();
 
   void adicionarCartaoNaColuna(const string& titulo, const string& descricao);
+  
   Cartao *obterPrimeiroCartao();
+
+  Cartao *obterCartao(const string &titulo);
+
+  void moverCartao(const string &titulo, Coluna *colunaDestino);
+  
+  void definirPrimeiroCartao(Cartao *cartao);
 };
 
 #endif

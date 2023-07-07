@@ -21,5 +21,9 @@ public:
 
   void adicionarCartao(const string &titulo, const string &descricao, const string &nomeColuna);
 
+  void localizarColunasMover(const string &titulo, const string &nomeColuna);
+
+  Coluna *obterColunaComCartao(const string &titulo);
+
 };
 #endif
