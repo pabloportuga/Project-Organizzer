@@ -12,7 +12,7 @@ Especificações dos arquivos:
 Quadro: Essa classe é a base de todo o projeto, ela tem como único atributo um porteiro para a primeira coluna, que foi implementada como uma lista simplesmente encadeada. Sua principal função é criar, editar ou excluir colunas, além de identificá-las.
 
 
-Classe Coluna: A classe Coluna possui três atributos: nome (identificação da coluna), proximaColuna (referência para a próxima coluna, utilizando uma lista encadeada) e primeiroCartao (ponteiro para o primeiro cartão, também implementado como uma lista simplesmente encadeada). Sua função principal é criar, editar ou excluir cartões, bem como identificá-los ou ordená-los. Atualmente, o algoritmo de ordenação Bubble Sort está disponível.
+Coluna: A classe Coluna possui três atributos: nome (identificação da coluna), proximaColuna (referência para a próxima coluna, utilizando uma lista encadeada) e primeiroCartao (ponteiro para o primeiro cartão, também implementado como uma lista simplesmente encadeada). Sua função principal é criar, editar ou excluir cartões, bem como identificá-los ou ordená-los. Atualmente, o algoritmo de ordenação Bubble Sort está disponível.
 
 Ideias futuras: Planejamos adicionar mais dois algoritmos de ordenação auxiliares: um baseado em prioridade (como Urgente, Normal e Baixa) e outro baseado no tamanho dos cartões.
   
