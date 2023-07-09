@@ -2,17 +2,23 @@ Informações do projeto para compor a nota da 3° Unidade da matéria IMD0030 -
 
 Autor: Pablo Soares Portugal - 20220041090.
 
-Data: 16/06/2023.
+Nome: ORGANIZZER - Quadro Kanban.
 
-
-Nome: ORGANIZZER.
-Referência: Quadro Kanban.
-Ideia geral: Um programa que organiza as tarefas do dia a dia do usuário numa interface em formato de listas.
+Ideia geral: O ORGANIZZER é um programa que permite aos usuários organizar suas tarefas diárias em uma interface com formato de listas, baseada no conceito de Quadro Kanban.
 
 
 Especificações dos arquivos:
-Quadro.cpp: Essa classe vai contar com 3 colunas: "A fazer", "Em andamento" e "Concluída", cada bloco será a cabeça de uma lista de cartões, ela será implementada usando uma estrutura de listas encadeadas.
 
-Coluna.cpp: Essa classe vai ser criada usando o conceito de Herança através da lista primária, entretanto sua estrutura será em formato de lista duplamente encadeada, isso se deve principalmente pelo nível de complexidade que ela permite quando existe a necessidade de inserções ou remoções constantes dos elementos. Usaremos também 4 algoritmos de ordenação auxiliares: alfabética, prioridade(Urgente, normal, baixa), quantidade de acessos, acessada recentemente.
-   
-Cartao.cpp: Essa classe vai conter dados juntamente como métodos como criar, excluir e modificar dados em uma estrutura de TADs em forma de pinha, dando prioridade para acessos recentes.
+Quadro: Essa classe é a base de todo o projeto, ela tem como único atributo um porteiro para a primeira coluna, que foi implementada como uma lista simplesmente encadeada. Sua principal função é criar, editar ou excluir colunas, além de identificá-las.
+
+
+Classe Coluna: A classe Coluna possui três atributos: nome (identificação da coluna), proximaColuna (referência para a próxima coluna, utilizando uma lista encadeada) e primeiroCartao (ponteiro para o primeiro cartão, também implementado como uma lista simplesmente encadeada). Sua função principal é criar, editar ou excluir cartões, bem como identificá-los ou ordená-los. Atualmente, o algoritmo de ordenação Bubble Sort está disponível.
+
+Ideias futuras: Planejamos adicionar mais dois algoritmos de ordenação auxiliares: um baseado em prioridade (como Urgente, Normal e Baixa) e outro baseado no tamanho dos cartões.
+  
+Cartao: A classe Cartao também possui três atributos: título, descrição (que funcionam como identificadores dos cartões)  e um ponteiro proximoCartao, caracterizando o uso da lista encadeada. É nessa classe que as informações do usuário serão mantidas. 
+
+
+Instalação: 
+1. Baixe ou clone o repositório;
+2. O makefile permite fácil instalação, use: "make && cd bin && ./Organizzer" para executar o programa.

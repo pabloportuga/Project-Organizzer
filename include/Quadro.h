@@ -15,7 +15,6 @@ public:
   void adicionarColuna(const string &nome);
   //Falta remover coluna
   void mostrarQuadro();
-  //Falta obter primeira coluna e definir primeira coluna
 
   Coluna *obterColuna(const string &nomeColuna);
 
