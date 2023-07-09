@@ -142,3 +142,27 @@ void Coluna::ordenarCartao() {
   }
 }
 
+void Coluna::removerCartao(const string &titulo){
+  Cartao *cartaoAtual = primeiroCartao;
+  Cartao *cartaoAnterior = nullptr;
+
+  while(cartaoAtual!=nullptr){
+    if(cartaoAtual->obterTitulo() == titulo){
+      if(cartaoAnterior == nullptr){
+        primeiroCartao = cartaoAtual->obterProximoCartao();
+      }
+      else{
+        cartaoAnterior->definirProximoCartao(cartaoAtual->obterProximoCartao());
+      }
+      delete cartaoAtual;
+      cout << "Cartão removido com sucesso!" << endl;
+      return;
+    }
+
+    cartaoAnterior = cartaoAtual;
+    cartaoAtual = cartaoAtual->obterProximoCartao();
+
+  }
+  cout << "Não existe cartão com esse título nessa coluna." << endl;
+}
+

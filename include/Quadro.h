@@ -28,5 +28,7 @@ public:
 
   void removerColuna(const string &nomeColuna);
 
+  void removerCartaoColuna(const string &titulo, const string nomeColuna);
+
 };
 #endif

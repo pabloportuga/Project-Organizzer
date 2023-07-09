@@ -132,3 +132,11 @@ void Quadro::removerColuna(const string &nomeColuna) {
   
   cout << "Não existe coluna com esse nome." << endl;
 }
+
+void Quadro::removerCartaoColuna(const string &titulo, const string nomeColuna){
+  Coluna *colunaDestino = obterColuna(nomeColuna);
+  colunaDestino->removerCartao(titulo);
+}
+
+
+

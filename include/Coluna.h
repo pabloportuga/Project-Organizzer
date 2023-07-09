@@ -34,6 +34,8 @@ public:
   void definirPrimeiroCartao(Cartao *cartao);
 
   void ordenarCartao();
+
+  void removerCartao(const string &titulo);
 };
 
 #endif

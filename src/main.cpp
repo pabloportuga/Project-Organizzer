@@ -10,7 +10,8 @@ void exibirMenu() {
   cout << "4. Mostrar quadro" << endl;
   cout << "5. Ordenar cartões em ordem alfabética" << endl;
   cout << "6. Remover coluna" << endl;
-  cout << "7. EXIT" << endl;
+  cout << "7. Remover cartão" << endl;
+  cout << "8. EXIT" << endl;
   cout << "------------------------------------------" << endl;
   cout << "Digite o comando: ";
 }
@@ -30,7 +31,7 @@ int main() {
   quadro.adicionarCartao("Projeto do jogo", "Aprender gdscript e godot", "Em andamento");
 
   quadro.adicionarCartao("Projeto Organizzer", "Programar e implementar todas as funções", "Concluída");
-  while (comando != 7) {
+  while (comando != 8) {
     exibirMenu();
     cin >> comando;
     switch (comando) {
@@ -89,7 +90,19 @@ int main() {
     quadro.removerColuna(nomeColuna);
     break;
   }
-    case 7: {
+  case 7:{
+    string nomeColuna;
+    string titulo;
+    cout << "Em qual coluna você quer remover o cartão: ";
+    cin.ignore();
+    getline(cin, nomeColuna);
+    cout << "Qual cartão você quer remover? ";
+    getline(cin, titulo);
+    quadro.removerCartaoColuna(titulo, nomeColuna);
+    break;
+
+  }
+    case 8: {
       cout << "Encerrando o programa..." << endl;
       break;
     }
