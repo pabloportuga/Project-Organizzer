@@ -25,5 +25,7 @@ public:
 
   Coluna *obterColunaComCartao(const string &titulo);
 
+  void obterColunaOrdenar(const string &nomeColuna);
+
 };
 #endif

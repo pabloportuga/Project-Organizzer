@@ -32,6 +32,8 @@ public:
   void moverCartao(const string &titulo, Coluna *colunaDestino);
 
   void definirPrimeiroCartao(Cartao *cartao);
+
+  void ordenarCartao();
 };
 
 #endif

@@ -18,6 +18,7 @@ Quadro::~Quadro(void) {
 
 void Quadro::adicionarColuna(const string &nome) {
   Coluna *novaColuna = new Coluna(nome);
+  
 
   // Lógica para adicionar a nova coluna ao quadro
 
@@ -96,4 +97,10 @@ Coluna *Quadro::obterColunaComCartao(const string &titulo) {
     colunaAtual = colunaAtual->obterProximaColuna();
   }
   return nullptr;
+}
+
+void Quadro::obterColunaOrdenar(const string &nomeColuna){
+  Coluna *colunaAtual = obterColuna(nomeColuna);
+  colunaAtual->ordenarCartao();
+  cout << "Coluna ordenada com sucesso!";
 }

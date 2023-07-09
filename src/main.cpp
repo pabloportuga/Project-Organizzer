@@ -3,13 +3,14 @@
 using namespace std;
 
 void exibirMenu() {
-  cout << "------ MENU ------" << endl;
+  cout << "------------------ MENU ------------------" << endl;
   cout << "1. Criar nova coluna" << endl;
   cout << "2. Criar novo cartão" << endl;
   cout << "3. Mover cartão" << endl;
   cout << "4. Mostrar quadro" << endl;
-  cout << "5. EXIT" << endl;
-  cout << "------------------" << endl;
+  cout << "5. Ordenar cartões em ordem alfabética" << endl;
+  cout << "6. EXIT" << endl;
+  cout << "------------------------------------------" << endl;
   cout << "Digite o comando: ";
 }
 
@@ -21,8 +22,14 @@ int main() {
   quadro.adicionarColuna("A fazer");
   quadro.adicionarColuna("Em andamento");
   quadro.adicionarColuna("Concluída");
+  quadro.adicionarCartao("d", "a", "A fazer");
 
-  while (comando != 5) {
+  quadro.adicionarCartao("c", "a", "A fazer");
+
+  quadro.adicionarCartao("b", "a", "A fazer");
+
+  quadro.adicionarCartao("a", "a", "A fazer");
+  while (comando != 6) {
     exibirMenu();
     cin >> comando;
     switch (comando) {
@@ -66,18 +73,20 @@ int main() {
       break;
     }
     case 5: {
-      cout << "Encerrando o programa..." << endl;
+      string nomeColuna;
+      cout << "Qual coluna você quer ordenar? ";
+      cin.ignore();
+      getline(cin, nomeColuna);
+      quadro.obterColunaOrdenar(nomeColuna);
       break;
     }
     case 6: {
-      string nomeColuna;
-      cout << "Qual coluna você quer ordenar?" << endl;
-      getline(cin, nomeColuna);
-      //ordenarCartao(nomeColuna); // implementar
+      cout << "Encerrando o programa..." << endl;
       break;
     }
     default: {
       cout << "Comando inválido. Digite um número válido do menu." << endl;
+
       break;
     }
     }

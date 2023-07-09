@@ -106,3 +106,38 @@ void Coluna::moverCartao(const string &titulo, Coluna *colunaDestino) {
 }
 
 void Coluna::definirPrimeiroCartao(Cartao *cartao) { primeiroCartao = cartao; }
+
+void Coluna::ordenarCartao() {
+  if (primeiroCartao == nullptr || primeiroCartao->obterProximoCartao() == nullptr) {
+    // Não há cartões suficientes para ordenar
+    return;
+  }
+
+  bool trocou = true;
+  while (trocou) {
+    trocou = false;
+    Cartao *atual = primeiroCartao;
+    while (atual->obterProximoCartao() != nullptr) {
+      Cartao *proximo = atual->obterProximoCartao();
+      if (atual->obterTitulo() > proximo->obterTitulo()) {
+        // Troca os cartões de posição
+        Cartao *aux = proximo->obterProximoCartao();
+        atual->definirProximoCartao(aux);
+        proximo->definirProximoCartao(atual);
+        if (atual == primeiroCartao) {
+          primeiroCartao = proximo;
+        } else {
+          Cartao *anterior = primeiroCartao;
+          while (anterior->obterProximoCartao() != atual) {
+            anterior = anterior->obterProximoCartao();
+          }
+          anterior->definirProximoCartao(proximo);
+        }
+        trocou = true;
+      } else {
+        atual = proximo;
+      }
+    }
+  }
+}
+
