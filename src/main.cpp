@@ -9,7 +9,8 @@ void exibirMenu() {
   cout << "3. Mover cartão" << endl;
   cout << "4. Mostrar quadro" << endl;
   cout << "5. Ordenar cartões em ordem alfabética" << endl;
-  cout << "6. EXIT" << endl;
+  cout << "6. Remover coluna" << endl;
+  cout << "7. EXIT" << endl;
   cout << "------------------------------------------" << endl;
   cout << "Digite o comando: ";
 }
@@ -22,14 +23,14 @@ int main() {
   quadro.adicionarColuna("A fazer");
   quadro.adicionarColuna("Em andamento");
   quadro.adicionarColuna("Concluída");
-  quadro.adicionarCartao("d", "a", "A fazer");
+  quadro.adicionarCartao("Estudar FMC1", "Resolver as listas e estudar pra prova", "A fazer");
 
-  quadro.adicionarCartao("c", "a", "A fazer");
+  quadro.adicionarCartao("Fazer compras", "Fazer uma lista do que está faltando", "A fazer");
 
-  quadro.adicionarCartao("b", "a", "A fazer");
+  quadro.adicionarCartao("Projeto do jogo", "Aprender gdscript e godot", "Em andamento");
 
-  quadro.adicionarCartao("a", "a", "A fazer");
-  while (comando != 6) {
+  quadro.adicionarCartao("Projeto Organizzer", "Programar e implementar todas as funções", "Concluída");
+  while (comando != 7) {
     exibirMenu();
     cin >> comando;
     switch (comando) {
@@ -80,7 +81,15 @@ int main() {
       quadro.obterColunaOrdenar(nomeColuna);
       break;
     }
-    case 6: {
+  case 6:{
+    string nomeColuna;
+    cout << "Qual o nome da coluna você quer remover: ";
+    cin.ignore();
+    getline(cin, nomeColuna);
+    quadro.removerColuna(nomeColuna);
+    break;
+  }
+    case 7: {
       cout << "Encerrando o programa..." << endl;
       break;
     }

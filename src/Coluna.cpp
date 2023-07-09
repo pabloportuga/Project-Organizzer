@@ -53,6 +53,7 @@ void Coluna::adicionarCartaoNaColuna(const string& titulo, const string& descric
     cartaoAtual->definirProximoCartao(novoCartao);
   }
 }
+
 Cartao *Coluna::obterPrimeiroCartao(){ return primeiroCartao; }
 
 Cartao *Coluna::obterCartao(const string &titulo){

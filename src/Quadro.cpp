@@ -31,6 +31,10 @@ void Quadro::adicionarColuna(const string &nome) {
   else {
     Coluna *colunaAtual = primeiraColuna;
     while (colunaAtual->obterProximaColuna() != nullptr) {
+      if(colunaAtual->obterNome() == novaColuna->obterNome()){
+        cout << "Já existe uma coluna com esse nome." << endl;
+        return;
+      }
       colunaAtual = colunaAtual->obterProximaColuna();
     }
     colunaAtual->definirProximaColuna(novaColuna);
@@ -69,10 +73,10 @@ void Quadro::adicionarCartao(const string &titulo, const string &descricao,
 
   if (colunaDestino != nullptr) {
     colunaDestino->adicionarCartaoNaColuna(titulo, descricao);
+    cout << "Cartão adicionado com sucesso!" << endl;
   } else {
-    cout << "A Coluna não existe!";
+    cout << "A Coluna não existe!" << endl;
   }
-  cout << "Cartão adicionado com sucesso!" << endl;
 }
 
 void Quadro::localizarColunasMover(const string &titulo,
@@ -103,4 +107,28 @@ void Quadro::obterColunaOrdenar(const string &nomeColuna){
   Coluna *colunaAtual = obterColuna(nomeColuna);
   colunaAtual->ordenarCartao();
   cout << "Coluna ordenada com sucesso!";
+}
+
+void Quadro::removerColuna(const string &nomeColuna) {
+  Coluna *colunaAtual = primeiraColuna;
+  Coluna *colunaAnterior = nullptr;
+  
+  while (colunaAtual != nullptr) {
+    if (colunaAtual->obterNome() == nomeColuna) {
+      if (colunaAnterior == nullptr) {
+        primeiraColuna = colunaAtual->obterProximaColuna();
+      } else {
+        colunaAnterior->definirProximaColuna(colunaAtual->obterProximaColuna());
+      }
+      
+      delete colunaAtual;
+      cout << "Coluna removida com sucesso!" << endl;
+      return;
+    }
+    
+    colunaAnterior = colunaAtual;
+    colunaAtual = colunaAtual->obterProximaColuna();
+  }
+  
+  cout << "Não existe coluna com esse nome." << endl;
 }

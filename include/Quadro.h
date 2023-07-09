@@ -26,5 +26,7 @@ public:
 
   void obterColunaOrdenar(const string &nomeColuna);
 
+  void removerColuna(const string &nomeColuna);
+
 };
 #endif
