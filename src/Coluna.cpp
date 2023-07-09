@@ -105,5 +105,4 @@ void Coluna::moverCartao(const string &titulo, Coluna *colunaDestino) {
   }
 }
 
-
 void Coluna::definirPrimeiroCartao(Cartao *cartao) { primeiroCartao = cartao; }
