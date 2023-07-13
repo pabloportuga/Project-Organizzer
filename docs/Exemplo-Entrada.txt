@@ -1,0 +1,21 @@
+//Copie e cole diretamento no programa:
+
+
+1
+A fazer
+1
+Em andamento
+1
+Concluída
+2
+Estudar FMC1
+Fazer as listas disponíveis
+A fazer
+2
+Desenvolver um site
+Aprender HTML, CSS e JavaScript
+Em andamento
+2
+Passar em EDB1
+Estudar tabelas hash e resolver as provas anteriores
+Concluída

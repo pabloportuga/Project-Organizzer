@@ -1,5 +1,7 @@
 #include "../include/Quadro.h"
 #include <iostream>
+#include <string>
+#include <limits>
 using namespace std;
 
 void exibirMenu() {
@@ -19,21 +21,19 @@ void exibirMenu() {
 int main() {
   Quadro quadro;
   int comando = 0;
+  string entrada;
 
-  cout << "Inicializando colunas padrão" << endl;
-  quadro.adicionarColuna("A fazer");
-  quadro.adicionarColuna("Em andamento");
-  quadro.adicionarColuna("Concluída");
-  quadro.adicionarCartao("Estudar FMC1", "Resolver as listas e estudar pra prova", "A fazer");
-
-  quadro.adicionarCartao("Fazer compras", "Fazer uma lista do que está faltando", "A fazer");
-
-  quadro.adicionarCartao("Projeto do jogo", "Aprender gdscript e godot", "Em andamento");
-
-  quadro.adicionarCartao("Projeto Organizzer", "Programar e implementar todas as funções", "Concluída");
   while (comando != 8) {
     exibirMenu();
-    cin >> comando;
+    cin >> entrada;
+    try {        
+      comando = std::stoi(entrada);  // Tenta converter a string em um número inteiro
+    } catch (...) {
+      cout << "Entrada inválida. Digite um número.\n";
+      cin.clear();  // Limpa a flag de erro de entrada
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');  // Descarta o restante da linha inválida
+      continue;  // Volta ao início do loop
+    }
     switch (comando) {
     case 1: {
       string nomeColuna;
