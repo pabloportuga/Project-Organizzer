@@ -19,6 +19,10 @@ Ideias futuras: Planejamos adicionar mais dois algoritmos de ordenação auxilia
 Cartao: A classe Cartao também possui três atributos: título, descrição (que funcionam como identificadores dos cartões)  e um ponteiro proximoCartao, caracterizando o uso da lista encadeada. É nessa classe que as informações do usuário serão mantidas. 
 
 
+Pastas auxiliares:
+bin: Conta com o executável Organizzer.
+docs: Conta com um arquivo .drawio que pode ser aberto usando o site app.diagrams.net, nele podemos visualizar a implementação da estrutura de dados: listas simplesmente encadeadas.
+
 Instalação: 
 1. Baixe ou clone o repositório;
 2. O makefile permite fácil instalação, use: "make && cd bin && ./Organizzer" para executar o programa.
