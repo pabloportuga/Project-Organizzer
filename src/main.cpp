@@ -48,10 +48,8 @@ int main() {
       cout << "Digite o título do novo cartao: ";
       cin.ignore();
       getline(cin, titulo);
-
       cout << "Digite a descrição do novo cartao: ";
       getline(cin, descricao);
-
       cout << "Digite o nome da coluna onde deseja adicionar o cartao: ";
       getline(cin, nomeColuna);
       quadro.adicionarCartao(titulo, descricao, nomeColuna);
@@ -65,7 +63,6 @@ int main() {
       getline(cin, tituloMover);
       cout << "Digite o nome da coluna de destino: ";
       getline(cin, moverParaColuna);
-
       quadro.localizarColunasMover(tituloMover, moverParaColuna);
       break;
     }
@@ -102,17 +99,16 @@ int main() {
     break;
 
   }
-    case 8: {
-      cout << "Encerrando o programa..." << endl;
-      break;
-    }
-    default: {
-      cout << "Comando inválido. Digite um número válido do menu." << endl;
-
-      break;
-    }
-    }
-    cout << endl;
+  case 8: {
+    cout << "Encerrando o programa..." << endl;
+    break;
+  }
+  default: {
+    cout << "Comando inválido. Digite um número válido do menu." << endl;
+    break;
+  }
+  }
+  cout << endl;
   }
   return 0;
 }

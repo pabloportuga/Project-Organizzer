@@ -10,10 +10,14 @@ private:
 
 public:
   Quadro();
+  
   ~Quadro(void);
 
   void adicionarColuna(const string &nome);
-  //Falta remover coluna
+
+
+  void removerColuna(const string &nomeColuna);
+
   void mostrarQuadro();
 
   Coluna *obterColuna(const string &nomeColuna);
@@ -25,8 +29,6 @@ public:
   Coluna *obterColunaComCartao(const string &titulo);
 
   void obterColunaOrdenar(const string &nomeColuna);
-
-  void removerColuna(const string &nomeColuna);
 
   void removerCartaoColuna(const string &titulo, const string nomeColuna);
 

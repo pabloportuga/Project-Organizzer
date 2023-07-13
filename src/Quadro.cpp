@@ -4,7 +4,6 @@ using namespace std;
 
 Quadro::Quadro() : primeiraColuna(nullptr) {}
 
-// Faltou o destrutor
 Quadro::~Quadro(void) {
   // Lógica para liberar a memória dos nós de coluna e cartão
   // Percorre a lista encadeada de colunas e libera a memória
@@ -18,8 +17,6 @@ Quadro::~Quadro(void) {
 
 void Quadro::adicionarColuna(const string &nome) {
   Coluna *novaColuna = new Coluna(nome);
-  
-
   // Lógica para adicionar a nova coluna ao quadro
 
   // Caso não haja colunas ainda, a nova coluna será a primeira
@@ -41,6 +38,31 @@ void Quadro::adicionarColuna(const string &nome) {
   }
   cout << "Coluna criada com sucesso!" << endl;
 }
+
+void Quadro::removerColuna(const string &nomeColuna) {
+  Coluna *colunaAtual = primeiraColuna;
+  Coluna *colunaAnterior = nullptr;
+  
+  while (colunaAtual != nullptr) {
+    if (colunaAtual->obterNome() == nomeColuna) {
+      if (colunaAnterior == nullptr) {
+        primeiraColuna = colunaAtual->obterProximaColuna();
+      } else {
+        colunaAnterior->definirProximaColuna(colunaAtual->obterProximaColuna());
+      }
+      
+      delete colunaAtual;
+      cout << "Coluna removida com sucesso!" << endl;
+      return;
+    }
+    
+    colunaAnterior = colunaAtual;
+    colunaAtual = colunaAtual->obterProximaColuna();
+  }
+  
+  cout << "Não existe coluna com esse nome." << endl;
+}
+
 
 void Quadro::mostrarQuadro() {
   cout << "-----------Quadro-----------" << endl << endl;
@@ -107,30 +129,6 @@ void Quadro::obterColunaOrdenar(const string &nomeColuna){
   Coluna *colunaAtual = obterColuna(nomeColuna);
   colunaAtual->ordenarCartao();
   cout << "Coluna ordenada com sucesso!";
-}
-
-void Quadro::removerColuna(const string &nomeColuna) {
-  Coluna *colunaAtual = primeiraColuna;
-  Coluna *colunaAnterior = nullptr;
-  
-  while (colunaAtual != nullptr) {
-    if (colunaAtual->obterNome() == nomeColuna) {
-      if (colunaAnterior == nullptr) {
-        primeiraColuna = colunaAtual->obterProximaColuna();
-      } else {
-        colunaAnterior->definirProximaColuna(colunaAtual->obterProximaColuna());
-      }
-      
-      delete colunaAtual;
-      cout << "Coluna removida com sucesso!" << endl;
-      return;
-    }
-    
-    colunaAnterior = colunaAtual;
-    colunaAtual = colunaAtual->obterProximaColuna();
-  }
-  
-  cout << "Não existe coluna com esse nome." << endl;
 }
 
 void Quadro::removerCartaoColuna(const string &titulo, const string nomeColuna){
